@@ -1,0 +1,20 @@
+groups:
+  - name: Ron
+    items:
+      - name: Ron Swanson
+        mtn: 223.456.7890
+        devicePayment: 0.00
+  - name: Ron's coworkers
+    items:
+      - name: Tom Haverford
+        mtn: 523.457.7890
+        devicePayment: 45.75
+      - name: Jerry Gergich
+        mtn: 223.458.7890
+        devicePayment: 0.00
+      - name: Donna Meagle
+        mtn: 323.456.7890
+        devicePayment: 40.75
+      - name: April Ludgate
+        mtn: 423.457.7890
+        devicePayment: 0.00

@@ -1,0 +1,65 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/openjdk:11.0.3-stretch
+      - image: localstack/localstack
+        environment:
+          SERVICES: s3:4572
+          DEFAULT_REGION: us-west-2
+    working_directory: ~/repo
+    environment:
+      JVM_OPTS: -Xmx3200m
+      TERM: dumb
+    steps:
+      - checkout
+      - run: ./gradlew build
+      - run: ./gradlew test
+      - store_test_results:
+          path: build/test-results
+      - store_artifacts:
+          path: build/reports/tests/test
+          destination: tests
+      - persist_to_workspace:
+          root: .
+          paths:
+            - build/distributions/*
+  deploy:
+    docker:
+      - image: circleci/openjdk:11.0.3-stretch
+        environment:
+          JVM_OPTS: -Xmx3200m
+          TERM: dumb
+    steps:
+      - run: sudo apt-get update
+      - run: sudo apt-get install -y curl
+      - run: curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+      - run: sudo apt-get install -y build-essential nodejs
+      - run: sudo npm install -g serverless
+      - checkout
+      - attach_workspace:
+          at: /tmp/workspace
+      - deploy:
+          name: Deploy to AWS
+          command: ./gradlew deployPrd
+
+workflows:
+  version: 2
+  build-test-and-deploy:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only:
+                - master
+      - hold:
+          type: approval
+          requires:
+            - build
+      - deploy:
+          filters:
+            branches:
+              only:
+                - master
+          requires:
+            - hold

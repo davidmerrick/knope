@@ -1,0 +1,23 @@
+{
+  "records": [
+    {
+      "sns": {
+        "messageAttributes": {},
+        "signingCertUrl": "https://sns.us-west-2.amazonaws.com/SimpleNotificationService-6aad65c2f9911b05cd53efda11f913f9.pem",
+        "messageId": "2eac83db-d1c9-511f-a114-d61cb308f8ae",
+        "message": "{\"Records\":[{\"eventVersion\":\"2.1\",\"eventSource\":\"aws:s3\",\"awsRegion\":\"us-west-2\",\"eventTime\":\"2019-08-09T12:01:04.021Z\",\"eventName\":\"ObjectCreated:Put\",\"userIdentity\":{\"principalId\":\"AWS:AROATCOR7IWM7ELI2KKPG:wyatt-prd-wyatt-handler\"},\"requestParameters\":{\"sourceIPAddress\":\"34.212.176.142\"},\"responseElements\":{\"x-amz-request-id\":\"3DC651943BE50023\",\"x-amz-id-2\":\"hP/XlSEa/Cp/WOHNHTKowsrPze3pYJbt08FxxfVlrYyxSVXoLRbonweJpZMXXjndS+CLESmhx8c=\"},\"s3\":{\"s3SchemaVersion\":\"1.0\",\"configurationId\":\"5c38a568-18b3-4138-a113-f898d801fec8\",\"bucket\":{\"name\":\"wyatt-bills\",\"ownerIdentity\":{\"principalId\":\"A1QBZBEEG3C51Q\"},\"arn\":\"arn:aws:s3:::wyatt-bills\"},\"object\":{\"key\":\"test_bill.json\",\"size\":23025,\"eTag\":\"50805143d99f5a070dc5dfd4598e6183\",\"sequencer\":\"005D4D607FD84F8324\"}}}]}",
+        "subject": "Amazon S3 Notification",
+        "unsubscribeUrl": "https://sns.us-west-2.amazonaws.com/?Action=Unsubscribe&SubscriptionArn=arn:aws:sns:us-west-2:123456789012:wyatt-prd:6674d3c4-796e-4ef0-ad07-3eda812f6d27",
+        "type": "Notification",
+        "signatureVersion": "1",
+        "signature": "banana",
+        "topicArn": "arn:aws:sns:us-west-2:123456789012:wyatt-prd"
+      },
+      "eventVersion": "1.0",
+      "eventSource": "aws:sns",
+      "eventSubscriptionArn": "arn:aws:sns:us-west-2:123456789012:wyatt-prd:6674d3c4-796e-4ef0-ad07-3eda812f6d27"
+    }
+  ]
+}
+
+
