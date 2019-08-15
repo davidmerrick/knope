@@ -1,4 +1,4 @@
-Splits Verizon bill after Wyatt has pushed it to S3.
+Splits Verizon bill after [Wyatt](https://github.com/davidmerrick/wyatt) has pushed it to S3.
 
 ![Leslie Knope](img/knope.jpg)
 
